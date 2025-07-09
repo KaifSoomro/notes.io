@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from 'react';
+import { HiMiniMagnifyingGlass, HiMiniBars3 } from "react-icons/hi2";
+import { FaCirclePlus } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import RegisterComp from './RegisterComp';
+import LoginComp from './LoginComp';
+
+const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
+
+  // Register
+  const [ registerBoolean, setRegisterBoolean ] = useState(false);
+  const showRegister = registerBoolean ? "block" : "hidden";
+
+  // Login
+  const [ loginBoolean, setLoginBoolean ] = useState(false);
+  const showLogin = loginBoolean ? "block" : "hidden";
+
+  const [profileBox,setProfileBox] = useState(false);
+  const showProfileBox = profileBox ? "absolute" : "hidden";
+
+  // token login funtion
+
+  const token = localStorage.getItem("token");
+  const userName = localStorage.getItem("username");
+
+  let nameLetter;
+
+  if(userName){
+    nameLetter = userName.slice(0,1);
+  }
+
+  useEffect(() => {
+    if(!token){
+      setRegisterBoolean(true)
+    }
+  },[])
+
+  return (
+    <>
+      <nav className='w-full h-30 md:h-40 flex items-center justify-between md:px-60 px-10 text-white'>
+      <div className='flex items-center justify-center md:gap-10 gap-2'>
+        {/* Mobile Menu Icon */}
+        <button type='button' onClick={onMenuClick} className='mt-1 text-[38px] md:hidden'>
+          <HiMiniBars3 />
+        </button>
+        {/* App Title */}
+        <h1 className='text-[35px] md:text-6xl text-blue-400 font-semibold'>notes.io</h1>
+        {/* Desktop Add Button */}
+        <FaCirclePlus onClick={onAddClick} className='hidden md:block text-5xl text-neutral-400 cursor-pointer hover:text-white' />
+      </div>
+      <div className='flex items-center justify-center gap-3'>
+        {/* Mobile Search Icon */}
+        <HiMiniMagnifyingGlass onClick={onSearchClick} className='bg-neutral-800 p-2 rounded-xl block md:hidden text-[50px] cursor-pointer text-neutral-400 hover:text-white' />
+        {/* Desktop Search Input */}
+        <input
+          onChange={(e) => setSearchQuery(e.target.value)}
+          type="text"
+          placeholder='Search'
+          className='hidden md:block border-none outline-none text-lg text-white px-4 py-2 rounded-md bg-neutral-800' 
+        />
+        {/* Profile */}
+        <button
+          type='button' 
+          onClick={()=>setProfileBox(true)}
+          className='w-10 h-10 bg-blue-400 text-blue-700 md:flex items-center justify-center rounded-full cursor-pointer hidden'>
+            <p className='uppercase text-2xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-8' alt="user-img" /> }</p>
+        </button>
+        {/* Profile Box */}
+        <div className={`z-10 w-[200px] h-[230px] top-30 right-35 bg-neutral-800 ${showProfileBox} rounded-md shadow-md`}>
+          <button onClick={()=>setProfileBox(false)} type='button' className='absolute top-3 right-3 text-3xl cursor-pointer'>
+            <IoClose />
+          </button>
+
+          <ul className='p-10 pt-10'>
+            <li onClick={()=>console.log(token)} className='text-xl my-3'>Edit Profile</li>
+            <li onClick={()=>setRegisterBoolean(true)} className='text-xl my-3 cursor-pointer'>Registration</li>
+            <li onClick={()=>setLoginBoolean(true)} className='text-xl my-3 cursor-pointer'>Login</li>
+            <li className='text-xl text-red-500'>Log out</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <RegisterComp showRegister={showRegister} setRegisterBoolean={setRegisterBoolean} setLoginBoolean={setLoginBoolean}/>
+    <LoginComp showLogin={showLogin} setLoginBoolean={setLoginBoolean} setRegisterBoolean={setRegisterBoolean}/>
+    </>
+  );
+};
+
+export default Navbar;
