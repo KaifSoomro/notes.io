@@ -5,7 +5,7 @@ import axios from 'axios';
 export const fetchNotes = createAsyncThunk(
   'notes/fetchNotes', 
   async (userEmail) => {
-    const response = await axios.post(`http://localhost:8000/notes/get-all-notes`,{
+    const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/notes/get-all-notes`,{
       userEmail
     })
 
@@ -25,7 +25,7 @@ export const addNote = createAsyncThunk(
         noteColor: noteData?.noteColor
       }
 
-      const response = await axios.post("http://localhost:8000/notes/add-note", data);
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/notes/add-note`, data);
       toast.success("Note added successfully.")
       return response.data; 
     } catch (error) {
@@ -39,7 +39,7 @@ export const deleteNote = createAsyncThunk(
   'notes/deleteNote',
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`http://localhost:8000/notes/delete-note/${id}`);
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/notes/delete-note/${id}`);
       toast.error("Note deleted successfully.")
       return id; 
     } catch (error) {
@@ -52,7 +52,7 @@ export const getSingleNoteForUpdate = createAsyncThunk(
   'notes/getSingleNoteForUpdate',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://localhost:8000/notes/get-single-note/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/notes/get-single-note/${id}`);
       return response.data.singleNote;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -65,7 +65,7 @@ export const updateNote = createAsyncThunk(
   'notes/updateNote',
   async ({ id, updatedData }, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`http://localhost:8000/notes/update-note/${id}`, updatedData);
+      const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/notes/update-note/${id}`, updatedData);
       toast.success("Note updated successfully.")
       return response.data; 
     } catch (error) {

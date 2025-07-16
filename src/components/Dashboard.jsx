@@ -40,7 +40,7 @@ const Dashboard = () => {
 
       try {
         const header = { headers: { Authorization: `Bearer ${token}` } };
-        const profileResponse = await axios.post("http://localhost:8000/user/profile", {}, header);
+        const profileResponse = await axios.post(`${import.meta.env.VITE_SERVER_URL}/user/profile`, {}, header);
         const fetchedEmail = profileResponse?.data?.data?.email;
         const userName = profileResponse?.data?.data?.name;
 

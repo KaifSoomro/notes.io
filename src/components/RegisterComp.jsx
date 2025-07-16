@@ -17,7 +17,7 @@ const RegisterComp = ({ showRegister, setRegisterBoolean, setLoginBoolean }) => 
       password:password
     }
 
-    axios.post("http://localhost:8000/user/registration", userData).then((response) => {
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/user/registration`, userData).then((response) => {
       console.log(response);
       setRegisterBoolean(false);
       setLoginBoolean(true)

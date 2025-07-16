@@ -19,7 +19,7 @@ const LoginComp = ({ showLogin, setLoginBoolean, setRegisterBoolean }) => {
       password:password
     }
 
-    axios.post("http://localhost:8000/user/login", loginData).then((response) => {
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/user/login`, loginData).then((response) => {
       console.log(response.data);
       localStorage.setItem("token", response?.data?.token);
       dispatch(fetchNotes(email))
