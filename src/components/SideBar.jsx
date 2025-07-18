@@ -29,8 +29,8 @@ const Sidebar = ({ isOpen, onClose }) => {
 
   
       <div className='w-full flex items-center justify-start gap-5 mt-10'>
-        <div className='w-20 h-20 rounded-full bg-blue-400 flex items-center justify-center'>
-          <p className='uppercase text-blue-700  text-5xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-13' alt="user-img" /> }</p>
+        <div className='w-15 h-15 rounded-full bg-blue-400 flex items-center justify-center'>
+          <p className='uppercase text-blue-700  text-4xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-13' alt="user-img" /> }</p>
         </div>
         <div>
           <h1 className='text-xl tracking-wide capitalize'>{ name ? name : "John doe" }</h1>
