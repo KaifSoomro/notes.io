@@ -7,7 +7,7 @@ const MobileSearchBar = ({ isOpen, onClose, setSearchQuery }) => {
   }
 
   return (
-    <div className='w-full h-15 bg-neutral-800 flex items-center justify-center px-10 text-white'>
+    <div className='w-full h-13 bg-neutral-800 flex items-center justify-center px-10 text-white'>
       <input
         onChange={(e) => setSearchQuery(e.target.value)}
         type="text"

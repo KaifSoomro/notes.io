@@ -31,37 +31,37 @@ const RegisterComp = ({ showRegister, setRegisterBoolean, setLoginBoolean }) => 
   }
 
   return (
-    <div className={`w-full h-screen bg-neutral-900/80 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-30 flex items-center justify-center ${showRegister}`}>
-      <form onSubmit={handleRegister} className='w-[430px] md:w-[550px] h-[420px] bg-white rounded-md pt-5 relative text-neutral-950 text-center px-7'>
+    <div className={`w-full h-screen bg-neutral-900/80 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-30 flex items-center justify-center ${showRegister} px-3`}>
+      <form onSubmit={handleRegister} className='w-[430px] md:w-[550px] h-[380px] md:h-[420px] bg-white rounded-md pt-5 relative text-neutral-950 text-center'>
         <button onClick={()=>setRegisterBoolean(false)} type="button" className='absolute top-5 right-5 text-3xl cursor-pointer text-neutral-900'>
           <IoClose />
         </button>
 
-        <h1 className='text-3xl my-2 font-semibold'>Registration</h1>
+        <h1 className='text-2xl md:text-3xl my-1 md:my-2 font-semibold'>Registration</h1>
 
         <input
           type="text"
           placeholder='Username'
           onChange={(e)=>setName(e.target.value)}
-          className='w-[85%] h-10 my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-2xl bg-transparent'
+          className='w-[85%] h-10 my-4 md:my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-xl md:text-2xl bg-transparent'
         />
         <input
           type="email"
           placeholder='Email'
           onChange={(e)=>setEmail(e.target.value)}
-          className='w-[85%] h-10 my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-2xl bg-transparent'
+          className='w-[85%] h-10 my-4 md:my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-xl md:text-2xl bg-transparent'
         />
         <input
           type="text"
           placeholder='Password'
           onChange={(e)=>setPassword(e.target.value)}
-          className='w-[85%] h-10 my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-2xl bg-transparent'
+          className='w-[85%] h-10 my-4 md:my-5 py-4 border-b border-b-black text-neutral-950 outline-none ps-1 pe-7 pt-2 text-xl md:text-2xl bg-transparent'
         />
         
         <div className='w-full flex items-center justify-center mt-3'>
             <button
               type='submit'
-              className='w-full px-5 py-2 bg-blue-900 mx-9 text-white rounded cursor-pointer'
+              className='w-full px-4 py-1 md:px-5 md:py-2 bg-blue-900 mx-9 text-white rounded cursor-pointer'
             >
               Register
             </button>

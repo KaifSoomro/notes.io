@@ -52,12 +52,8 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
 
   return (
     <>
-      <nav className='w-full h-30 md:h-40 flex items-center justify-between md:px-60 px-10 text-white'>
+      <nav className='w-full h-24 md:h-40 flex items-center justify-between md:px-60 px-10 text-white'>
       <div className='flex items-center justify-center md:gap-10 gap-2'>
-        {/* Mobile Menu Icon */}
-        <button type='button' onClick={onMenuClick} className='mt-1 text-[38px] md:hidden'>
-          <HiMiniBars3 />
-        </button>
         {/* App Title */}
         <h1 className='text-[35px] md:text-6xl text-blue-400 font-semibold'>notes.io</h1>
         {/* Desktop Add Button */}
@@ -73,7 +69,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
             <p className='uppercase text-2xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-8' alt="user-img" /> }</p>
         </button>
         {/* Profile Box */}
-        <div className={`z-10 w-[200px] h-[230px] top-30 right-35 bg-neutral-800 ${showProfileBox} rounded-md shadow-md`}>
+        <div className={`z-10 w-[200px] h-[230px] top-20 right-25 md:top-30 md:right-120 bg-neutral-800 ${showProfileBox} rounded-md shadow-md`}>
           <button onClick={()=>setProfileBox(false)} type='button' className='absolute top-3 right-3 text-3xl cursor-pointer'>
             <IoClose />
           </button>
@@ -86,7 +82,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
           </ul>
         </div>
         {/* Mobile Search Icon */}
-        <HiMiniMagnifyingGlass onClick={onSearchClick} className='bg-neutral-800 p-2 rounded-xl block md:hidden text-[50px] cursor-pointer text-neutral-400 hover:text-white' />
+        <HiMiniMagnifyingGlass onClick={onSearchClick} className='bg-neutral-800 p-2 rounded-xl block md:hidden text-[45px] cursor-pointer text-neutral-400 hover:text-white' />
         {/* Desktop Search Input */}
         <input
           onChange={(e) => setSearchQuery(e.target.value)}

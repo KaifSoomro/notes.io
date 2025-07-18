@@ -6,7 +6,6 @@ import UpdateNoteForm from './UpdateNoteForm';
 import NoteList from './NoteList';
 import Navbar from "./NavBar";
 import MobileSearchBar from "./MobileSearchBar";
-import Sidebar from './SideBar';
 import Welcome from "./Welcome";
 // Ensure all necessary Redux actions are imported
 import { fetchNotes, addNote, deleteNote, updateNote, getSingleNoteForUpdate, clearNoteToUpdate } from '../features/notes/notesSlice';
@@ -175,12 +174,6 @@ const Dashboard = () => {
         isOpen={showMobileSearch}
         onClose={() => setShowMobileSearch(false)}
         setSearchQuery={setSearchQuery}
-      />
-
-      {/* Side Bar Mobile */}
-      <Sidebar
-        isOpen={showSidebar}
-        onClose={() => setShowSidebar(false)}
       />
 
       {/* Display Notes */}
