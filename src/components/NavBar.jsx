@@ -69,16 +69,16 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
             <p className='uppercase text-2xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-8' alt="user-img" /> }</p>
         </button>
         {/* Profile Box */}
-        <div className={`z-10 w-[200px] h-[230px] top-20 right-25 md:top-30 md:right-120 bg-neutral-800 ${showProfileBox} rounded-md shadow-md`}>
-          <button onClick={()=>setProfileBox(false)} type='button' className='absolute top-3 right-3 text-3xl cursor-pointer'>
+        <div className={`z-10 w-[150px] h-[180px] md:w-[200px] md:h-[230px] top-20 right-25 md:top-30 md:right-120 bg-neutral-800 ${showProfileBox} rounded-md shadow-md`}>
+          <button onClick={()=>setProfileBox(false)} type='button' className='absolute top-3 right-3 text-2xl md:text-3xl cursor-pointer'>
             <IoClose />
           </button>
 
-          <ul className='p-10 pt-10'>
-            <li onClick={()=>console.log(token)} className='text-xl my-3'>Edit Profile</li>
-            <li onClick={()=>setRegisterBoolean(true)} className='text-xl my-3 cursor-pointer'>Registration</li>
-            <li onClick={()=>setLoginBoolean(true)} className='text-xl my-3 cursor-pointer'>Login</li>
-            <button onClick={handleDeleteUser} className='text-xl text-red-500'>Log out</button>
+          <ul className='p-5 md:p-10 pt-5 md:pt-10'>
+            <li onClick={()=>console.log(token)} className='text-lg md:text-xl my-2 md:my-3'>Edit Profile</li>
+            <li onClick={()=>setRegisterBoolean(true)} className='text-lg md:text-xl my-2 md:my-3 cursor-pointer'>Registration</li>
+            <li onClick={()=>setLoginBoolean(true)} className='text-lg md:text-xl my-2 md:my-3 cursor-pointer'>Login</li>
+            <button onClick={handleDeleteUser} className='text-lg md:text-xl text-red-500'>Log out</button>
           </ul>
         </div>
         {/* Mobile Search Icon */}
