@@ -37,7 +37,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           <h1 className='text-xs text-neutral-300'>{ userEmail ? userEmail : "xyz@gmail.com" }</h1>
         </div>
       </div>
-
+      
     </div>
   );
 };

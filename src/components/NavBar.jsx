@@ -35,6 +35,12 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
     }
   },[])
 
+  const handleDeleteUser = () => {
+    if(token){
+      localStorage.removeItem("token");
+    }
+  }
+
   return (
     <>
       <nav className='w-full h-30 md:h-40 flex items-center justify-between md:px-60 px-10 text-white'>
@@ -49,20 +55,12 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
         <FaCirclePlus onClick={onAddClick} className='hidden md:block text-5xl text-neutral-400 cursor-pointer hover:text-white' />
       </div>
       <div className='flex items-center justify-center gap-3'>
-        {/* Mobile Search Icon */}
-        <HiMiniMagnifyingGlass onClick={onSearchClick} className='bg-neutral-800 p-2 rounded-xl block md:hidden text-[50px] cursor-pointer text-neutral-400 hover:text-white' />
-        {/* Desktop Search Input */}
-        <input
-          onChange={(e) => setSearchQuery(e.target.value)}
-          type="text"
-          placeholder='Search'
-          className='hidden md:block border-none outline-none text-lg text-white px-4 py-2 rounded-md bg-neutral-800' 
-        />
+
         {/* Profile */}
         <button
           type='button' 
           onClick={()=>setProfileBox(true)}
-          className='w-10 h-10 bg-blue-400 text-blue-700 md:flex items-center justify-center rounded-full cursor-pointer hidden'>
+          className='w-10 h-10 bg-blue-400 text-blue-700 flex items-center justify-center rounded-full cursor-pointer'>
             <p className='uppercase text-2xl'>{ nameLetter ? nameLetter : <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" className='w-8' alt="user-img" /> }</p>
         </button>
         {/* Profile Box */}
@@ -75,9 +73,18 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
             <li onClick={()=>console.log(token)} className='text-xl my-3'>Edit Profile</li>
             <li onClick={()=>setRegisterBoolean(true)} className='text-xl my-3 cursor-pointer'>Registration</li>
             <li onClick={()=>setLoginBoolean(true)} className='text-xl my-3 cursor-pointer'>Login</li>
-            <li className='text-xl text-red-500'>Log out</li>
+            <li onClick={()=>handleDeleteUser} className='text-xl text-red-500'>Log out</li>
           </ul>
         </div>
+        {/* Mobile Search Icon */}
+        <HiMiniMagnifyingGlass onClick={onSearchClick} className='bg-neutral-800 p-2 rounded-xl block md:hidden text-[50px] cursor-pointer text-neutral-400 hover:text-white' />
+        {/* Desktop Search Input */}
+        <input
+          onChange={(e) => setSearchQuery(e.target.value)}
+          type="text"
+          placeholder='Search'
+          className='hidden md:block border-none outline-none text-lg text-white px-4 py-2 rounded-md bg-neutral-800' 
+        />
       </div>
     </nav>
     <RegisterComp showRegister={showRegister} setRegisterBoolean={setRegisterBoolean} setLoginBoolean={setLoginBoolean}/>
