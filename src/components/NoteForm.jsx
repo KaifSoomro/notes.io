@@ -61,7 +61,7 @@ const NoteForm = ({ isOpen, onClose, onSubmit, loading }) => {
           ) : (
             <button
               type='submit'
-              className='px-4 md:px-5 py-2 me-9 md:me-15 bg-neutral-800 text-white rounded ms-7 cursor-pointer'
+              className='px-4 md:px-5 py-2 me-3 md:me-15 bg-neutral-800 text-white rounded ms-7 cursor-pointer'
               disabled={loading}
             >
               Add
