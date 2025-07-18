@@ -4,6 +4,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import RegisterComp from './RegisterComp';
 import LoginComp from './LoginComp';
+import { toast } from 'react-toastify';
 
 const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
 
@@ -47,7 +48,8 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
         localStorage.removeItem("email");
       }
 
-      window.location.reload()
+      toast.info("Logged out successfully.");
+      window.location.reload();
   }
 
   return (
