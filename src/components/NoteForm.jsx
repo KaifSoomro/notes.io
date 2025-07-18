@@ -34,7 +34,7 @@ const NoteForm = ({ isOpen, onClose, onSubmit, loading }) => {
   if (!isOpen) return null;
 
   return (
-    <div className='w-full h-screen bg-neutral-900/80 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-30 flex items-center justify-center px-3 md:px-0'>
+    <div className='w-full h-screen bg-neutral-900/80 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-30 flex items-center justify-center'>
       <form onSubmit={handleSubmit} className='w-full md:w-[550px] h-[330px] md:h-[370px] bg-amber-100 rounded-md pt-5 relative text-neutral-950'>
         <button type="button" onClick={onClose} className='absolute top-5 right-5 text-3xl cursor-pointer text-neutral-900'>
           <IoClose />

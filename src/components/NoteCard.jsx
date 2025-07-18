@@ -33,7 +33,7 @@ const NoteCard = ({ note, onDelete, onEdit }) => {
         <IoPencil />
       </button>
 
-      <h1 className='text-xl md:text-3xl text-neutral-900'>{note?.heading}</h1>
+      <h1 className='w-[85%] text-xl md:text-3xl text-neutral-900'>{note?.heading}</h1>
       <p className='pt-5 text-sm md:text-lg text-neutral-900'>{note?.paragraph}</p>
     </div>
   );
