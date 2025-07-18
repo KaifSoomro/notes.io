@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoClose } from "react-icons/io5";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const RegisterComp = ({ showRegister, setRegisterBoolean, setLoginBoolean }) => {
 
@@ -20,8 +21,12 @@ const RegisterComp = ({ showRegister, setRegisterBoolean, setLoginBoolean }) => 
     axios.post(`${import.meta.env.VITE_SERVER_URL}/user/registration`, userData).then((response) => {
       console.log(response);
       setRegisterBoolean(false);
+      toast.success("Registration Successful.");
       setLoginBoolean(true)
-    }).catch((error) => console.log(error))
+    }).catch((error) => {
+      console.log(error)
+      toast.warning("Registration Failed.");
+    })
 
   }
 

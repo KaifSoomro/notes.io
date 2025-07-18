@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5";
 import axios from 'axios';
 import { fetchNotes } from "../features/notes/notesSlice.js";
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const LoginComp = ({ showLogin, setLoginBoolean, setRegisterBoolean }) => {
 
@@ -22,10 +23,12 @@ const LoginComp = ({ showLogin, setLoginBoolean, setRegisterBoolean }) => {
     axios.post(`${import.meta.env.VITE_SERVER_URL}/user/login`, loginData).then((response) => {
       console.log(response.data);
       localStorage.setItem("token", response?.data?.token);
-      dispatch(fetchNotes(email))
+      dispatch(fetchNotes(email));
+      toast.success("Login Successful.")
       setLoginBoolean(false);
     }).catch((err)=>{
       console.log(err)
+      toast.warning("Login Failed.")
     })    
   }
 
