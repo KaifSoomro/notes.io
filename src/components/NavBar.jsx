@@ -37,9 +37,9 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
   },[])
 
   const handleDeleteUser = () => {
-    if(token || userName || email){
-      localStorage.removeItem("token","username","email");
-    }
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("email");
   }
 
   return (
