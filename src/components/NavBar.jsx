@@ -37,9 +37,15 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
   },[])
 
   const handleDeleteUser = () => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      localStorage.removeItem("email");
+      if(token){
+        localStorage.removeItem("token");
+      }
+      if(userName){
+        localStorage.removeItem("username");
+      }
+      if(email){
+        localStorage.removeItem("email");
+      }
   }
 
   return (
@@ -74,7 +80,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
             <li onClick={()=>console.log(token)} className='text-xl my-3'>Edit Profile</li>
             <li onClick={()=>setRegisterBoolean(true)} className='text-xl my-3 cursor-pointer'>Registration</li>
             <li onClick={()=>setLoginBoolean(true)} className='text-xl my-3 cursor-pointer'>Login</li>
-            <button onClick={()=>handleDeleteUser} className='text-xl text-red-500'>Log out</button>
+            <button onClick={handleDeleteUser} className='text-xl text-red-500'>Log out</button>
           </ul>
         </div>
         {/* Mobile Search Icon */}
