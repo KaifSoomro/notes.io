@@ -22,6 +22,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
 
   const token = localStorage.getItem("token");
   const userName = localStorage.getItem("username");
+  const email = localStorage.getItem("email");
 
   let nameLetter;
 
@@ -36,7 +37,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
   },[])
 
   const handleDeleteUser = () => {
-    if(token){
+    if(token || userName || email){
       localStorage.removeItem("token","username","email");
     }
   }
