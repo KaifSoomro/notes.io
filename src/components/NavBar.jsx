@@ -7,8 +7,6 @@ import LoginComp from './LoginComp';
 
 const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
 
-  const dispatch = useDispatch();
-
   // Register
   const [ registerBoolean, setRegisterBoolean ] = useState(false);
   const showRegister = registerBoolean ? "block" : "hidden";
