@@ -27,14 +27,14 @@ const NoteCard = ({ note, onDelete, onEdit }) => {
 
       <button
         onClick={handleEditClick}
-        className='absolute bottom-5 left-5 text-2xl cursor-pointer bg-neutral-900 hover:bg-neutral-800 p-3 rounded-full shadow-md text-white'
+        className='absolute bottom-5 left-5 text-xl md:text-2xl cursor-pointer bg-neutral-900 hover:bg-neutral-800 p-2 md:p-3 rounded-full shadow-md text-white'
         disabled={loading} 
       >
         <IoPencil />
       </button>
 
-      <h1 className='text-2xl md:text-3xl text-neutral-900'>{note?.heading}</h1>
-      <p className='pt-5 text-lg text-neutral-900'>{note?.paragraph}</p>
+      <h1 className='text-xl md:text-3xl text-neutral-900'>{note?.heading}</h1>
+      <p className='pt-5 text-sm md:text-lg text-neutral-900'>{note?.paragraph}</p>
     </div>
   );
 };

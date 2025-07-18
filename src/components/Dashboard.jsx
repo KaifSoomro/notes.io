@@ -178,7 +178,7 @@ const Dashboard = () => {
 
       {/* Display Notes */}
       {
-        token ? <div className='w-full md:min-h-[80%] px-10 md:px-60 pt-10 grid grid-cols-1 md:grid-cols-3 gap-y-7'>
+        token ? <div className='w-full md:min-h-[80%] px-3 md:px-60 pt-10 grid grid-cols-1 md:grid-cols-3 gap-y-7'>
         {noteStatus === 'loading' && <p className="col-span-full text-center text-xl">Loading notes...</p>}
         {noteStatus === 'failed' && <p className="col-span-full text-center text-xl text-red-500">Error: {error}</p>}
         {noteStatus === 'succeeded' && (
