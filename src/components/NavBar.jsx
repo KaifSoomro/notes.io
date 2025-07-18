@@ -73,7 +73,7 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
             <li onClick={()=>console.log(token)} className='text-xl my-3'>Edit Profile</li>
             <li onClick={()=>setRegisterBoolean(true)} className='text-xl my-3 cursor-pointer'>Registration</li>
             <li onClick={()=>setLoginBoolean(true)} className='text-xl my-3 cursor-pointer'>Login</li>
-            <li onClick={()=>handleDeleteUser} className='text-xl text-red-500'>Log out</li>
+            <li onClick={()=>localStorage.removeItem('token')} className='text-xl text-red-500'>Log out</li>
           </ul>
         </div>
         {/* Mobile Search Icon */}
