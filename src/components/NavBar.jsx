@@ -48,8 +48,8 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
         localStorage.removeItem("email");
       }
 
-      toast.info("Logged out successfully.");
       window.location.reload();
+      toast.info("Logged out successfully.");
   }
 
   return (
