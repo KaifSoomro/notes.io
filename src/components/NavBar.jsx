@@ -7,6 +7,8 @@ import LoginComp from './LoginComp';
 
 const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
 
+  const dispatch = useDispatch();
+
   // Register
   const [ registerBoolean, setRegisterBoolean ] = useState(false);
   const showRegister = registerBoolean ? "block" : "hidden";
@@ -46,6 +48,8 @@ const Navbar = ({ onAddClick, onSearchClick, onMenuClick, setSearchQuery }) => {
       if(email){
         localStorage.removeItem("email");
       }
+
+      window.location.reload()
   }
 
   return (
